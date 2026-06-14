@@ -16,13 +16,15 @@ $(JAR):
 expr: 
 	touch $(SOURCELOX)Expr.java
 	javac $(SOURCETOOL)GenerateAst.java 
-	cd src && java com.craftinginterpreters.tool.GenerateAst ./com/craftinginterpreters/lox
+	cd src && \
+	java com.craftinginterpreters.tool.GenerateAst ./com/craftinginterpreters/lox && \
+	rm ./com/craftinginterpreters/tool/GenerateAst.class
 
 clean:
 	rm -rf \
 		$(BUILDDIR) \
 		$(JAR) \
-		$(SOURCETOOL)*.class 
+		$(SOURCELOX)*.class 
 
 run: $(JAR)
 	java -jar $(JAR)
