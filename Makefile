@@ -23,8 +23,7 @@ expr:
 clean:
 	rm -rf \
 		$(BUILDDIR) \
-		$(JAR) \
-		$(SOURCELOX)*.class 
+		$(JAR) 
 
 run: $(JAR)
 	java -jar $(JAR)
